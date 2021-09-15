@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import HeroesApp from './HeroesApp';
 
 ReactDOM.render(
   <React.StrictMode>
-    {/* <App /> */}
+    <HeroesApp />
   </React.StrictMode>,
   document.getElementById('root')
 );
