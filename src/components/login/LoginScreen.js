@@ -1,13 +1,27 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useHistory } from 'react-router-dom'
+import { AuthContext } from '../../auth/AuthContext';
+import { types } from '../../types/types';
 
 const LoginScreen = () => {
+
+    const { dispatch } = useContext(AuthContext);
 
     const history = useHistory();
 
     const handleLogin = (e) => {
         // history.push('/');
-        history.replace('/'); //user can't come back
+
+        const lastPath = localStorage.getItem('lastPath') || '/';
+
+        dispatch({
+            type: types.login,
+            payload: {
+                name: 'fede'
+            }
+        });
+        
+        history.replace(lastPath); //user can't come back
     };
 
     return (
