@@ -4,12 +4,14 @@ import { Link } from 'react-router-dom';
 const HeroCard = ({ hero }) => {
 
     const { id, superhero, alter_ego, first_appearance, characters } = hero;
+    const heroImages = require.context('../../assets/heroes', true);
 
     return (
         <div className="col-md-6 mt-4">
             <div className="card">
                 <img 
-                    src={ `assets/heroes/${id}.jpg` } 
+                    // src={ `assets/heroes/${id}.jpg` } 
+                    src={ heroImages(`./${ id }.jpg`).default }
                     className="card-img-top" 
                     alt={ superhero }
                     height="400" 

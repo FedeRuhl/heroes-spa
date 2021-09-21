@@ -1,7 +1,9 @@
 import React, { useMemo } from 'react';
 import { Redirect, useParams } from 'react-router';
 import { getHeroById } from '../../selectors/getHeroById';
-import { useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom';
+
+const heroImages = require.context('../../assets/heroes', true);
 
 const HeroScreen = () => {
 
@@ -31,7 +33,8 @@ const HeroScreen = () => {
             <div className="col-md-4">
                 <img
                     // src={ `../../../assets/heroes/${heroId}.jpg` }
-                    src={ `/assets/heroes/${heroId}.jpg` }
+                    // src={ `/assets/heroes/${heroId}.jpg` } // from public/assets
+                    src={ heroImages(`./${ heroId }.jpg`).default }
                     alt={ superhero }
                     className="img-thumbnail animate__animated animate__fadeInLeft"
                 />
